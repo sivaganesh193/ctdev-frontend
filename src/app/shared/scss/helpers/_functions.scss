@@ -1,0 +1,3 @@
+@function img_bg($img_url) {
+    @return url($img_url) no-repeat center center;
+}
