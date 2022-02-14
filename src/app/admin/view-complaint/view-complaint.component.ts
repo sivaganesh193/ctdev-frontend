@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-complaint.component.scss']
 })
 export class ViewComplaintComponent implements OnInit {
+  chats: any[]
 
-  constructor() { }
+  constructor() { 
+      this.chats = [];
+  }
 
   ngOnInit(): void {
   }

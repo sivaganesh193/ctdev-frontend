@@ -1,1 +1,23 @@
-<p>view-complaint works!</p>
+<div class="container">
+    <div class="complaint-container">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ab quisquam commodi soluta fugit. Dolorum minima quasi assumenda unde veritatis quaerat, vero perferendis cumque voluptate rem, aspernatur recusandae porro obcaecati!
+    </div>
+    <div class="chat-wrap" *ngFor="let chat of this.chats;">
+        <div class="chat" 
+            [ngClass]="chat.user === 'admin' ? 'primary':'secondary'"
+        >
+            {{ chat.message }}
+            <div class="time" 
+                [ngClass]="chat.user === 'admin' ? 'primary':'secondary'"
+            >
+                {{ chat.timestamp }}
+            </div>
+        </div>
+    </div>
+    <div class="chat-type-wrap">
+        <input type="text" placeholder="type something ...">
+        <button>
+            <img src="../../../assets/img/send.png" alt="send-icon">
+        </button>
+    </div>
+</div>

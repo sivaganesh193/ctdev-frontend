@@ -1,0 +1,77 @@
+@use '/src/app/shared/scss/main.scss' as global;
+
+.container {
+    padding: 1em;
+    font-family: global.$primary_font;
+
+    .complaint-container {
+        font-weight: 500;
+        border: 2px solid gainsboro;
+        border-radius: 10px;
+        padding: 1em;
+        margin-bottom: 2em;
+    }
+
+    .chat-wrap {
+        @include global.column($gap: .3em);
+        margin-bottom: 1em;
+        .chat {
+            @include global.column;
+            padding: 1em;
+            border-radius: 20px;
+            font-weight: 500;
+            width: fit-content;
+            &.primary {
+                align-self: flex-start;
+                border-radius: 0 20px 20px 20px;
+                background: global.$primary_chat_color;
+            }
+            &.secondary {
+                align-self: flex-end;
+                border-radius: 20px 0 20px 20px;
+                background: global.$secondary_chat_color;
+                color: white;
+            }
+    
+            .time {
+                font-size: .65em;
+                align-self: end;
+                &.primary {
+                    color: #858080;
+                }
+                &.secondary {
+                    color: #fcfcfcde;
+                }
+            }
+        }
+    }
+
+    .chat-type-wrap {
+        @include global.row($gap: 1em, $justify-content: center);
+        position: fixed;
+        left: 0;
+        bottom: 20px;
+        width: 100%;
+        input {
+            @include global.input;
+            padding: 1em;
+            border-radius: 1em;
+            background: global.$primary_chat_color;
+            width: max(70vw,300px);
+            font-size: 1em;
+            font-weight: 500;
+        }
+        button {
+            @include global.button(50%);
+            background: global.$secondary_chat_color;
+            color: white;
+            img {
+                filter: invert(100%);
+            }
+        }
+
+        @media (max-width: 400px) {
+            gap: .3em;
+        }
+    }
+}

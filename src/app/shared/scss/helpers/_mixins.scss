@@ -1,6 +1,21 @@
-@mixin button {
+@mixin button($border-radius: 0px) {
     border: none;
     outline: none;
     padding: .5em .75em;
     cursor: pointer;
+    border-radius: $border-radius;
+}
+
+@mixin link($color: none) {
+    text-decoration: none;
+    color: black;
+    &:hover {
+        text-decoration: underline;
+        text-decoration-color: $color;
+    }
+}
+
+@mixin input {
+    outline: none;
+    border: none;
 }
