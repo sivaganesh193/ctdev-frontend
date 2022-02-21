@@ -5,6 +5,7 @@ import { StudentRoutingModule } from './student-routing.module';
 import { ComplaintComponent } from './complaint/complaint.component';
 import { ViewComplaintComponent } from './view-complaint/view-complaint.component';
 import { ComplaintModalComponent } from './complaint-modal/complaint-modal.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ComplaintModalComponent } from './complaint-modal/complaint-modal.compo
   ],
   imports: [
     CommonModule,
-    StudentRoutingModule
+    StudentRoutingModule,
+    SharedModule
   ]
 })
 export class StudentModule { }

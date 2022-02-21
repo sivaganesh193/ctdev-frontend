@@ -1,6 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    @supports (scrollbar-color: gainsboro #f1f7fc !important) {
+        scrollbar-width: 20px;
+        scrollbar-color: gainsboro transparent !important;
+    }
+
+    @supports not (scrollbar-color: gainsboro #f1f7fc !important) {
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: gainsboro !important;
+            height: 200px;
+            border-left: none;
+            border-right: none;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent !important;
+        }
+    }
 }

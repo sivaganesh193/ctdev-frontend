@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { fromEvent, map, Observable } from 'rxjs';
+import { DOCUMENT, ViewportScroller } from '@angular/common';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+
+@UntilDestroy()
 
 @Component({
   selector: 'app-view-complaint',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComplaintComponent implements OnInit {
   chats:any[];
+  readonly showScroll$: Observable<boolean>;
 
-  constructor() { 
+  constructor(@Inject(DOCUMENT) private readonly document: Document, private readonly viewport: ViewportScroller) { 
       this.chats = [];
+      this.showScroll$ = fromEvent(this.document,'scroll')
+      .pipe(
+          untilDestroyed(this),
+          map(() => this.viewport.getScrollPosition()?.[1] > 0)
+      );
   }
 
   ngOnInit(): void {
@@ -26,7 +37,7 @@ export class ViewComplaintComponent implements OnInit {
           },
           {
               user: "admin",
-              message: 'Thanks for replying.',
+              message: 'Thanks for replying. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ab quisquam commodi soluta fugit. Dolorum minima quasi assumenda unde veritatis quaerat, vero perferendis cumque voluptate rem, aspernatur recusandae porro obcaecati!',
               timestamp: '07:00 PM'
           },
           {
@@ -37,4 +48,11 @@ export class ViewComplaintComponent implements OnInit {
       ]
   }
 
+  trackByIdFn(_:number, data: any) {
+      return data.cid;
+  }
+
+  onScrollToTop(): void {
+      this.viewport.scrollToPosition([0,0]);
+  }
 }

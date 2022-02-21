@@ -1,0 +1,11 @@
+@use '/src/app/shared/scss/main.scss' as global;
+
+button {
+    @include global.button(50%);
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    font-size: 1.2em;
+    color: white;
+    background: global.$secondary_chat_color;
+}

@@ -8,6 +8,7 @@ import { ComplaintsComponent } from './complaints/complaints.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { AddFaqComponent } from './add-faq/add-faq.component';
 import { ViewComplaintComponent } from './view-complaint/view-complaint.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ViewComplaintComponent } from './view-complaint/view-complaint.componen
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SharedModule,
   ]
 })
 export class AdminModule { }
