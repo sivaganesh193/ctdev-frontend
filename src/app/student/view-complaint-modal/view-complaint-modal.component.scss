@@ -1,0 +1,79 @@
+@use '/src/app/shared/scss/main.scss' as global;
+
+.container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    @include global.row($justify-content: center);
+    background: rgba(0,0,0,0.1);
+    padding: 1em;
+    font-family: global.$primary-font;
+
+    .model-box {
+        @include global.grid-col;
+        padding: 3em;
+        border-radius: 15px;
+        background: white;
+        width: 70vw;
+        height: 50vh;
+        .img {
+            background: global.img_bg('#{global.$svg_path}/complaint.svg');
+            background-size: contain;
+        }
+        .content {
+            h3 {
+                display: inline;
+                border-bottom: 3px solid global.$dark_violet;
+                margin-bottom: 1em;
+                text-transform: uppercase;
+            }
+            form {
+                @include global.column($gap: 1em);
+                width: 90%;
+                input {
+                    @include global.input;
+                    padding: .5em .75em;
+                    border-radius: .2em;
+                    background: global.$primary_chat_color;
+                    font-size: 1.1em;
+                }
+                button {
+                    font-size: 1.1em;
+                    &:disabled {
+                        background: lighten(global.$primary_btn_color, 20%);
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 900px) {
+            padding: 1em;
+            height: fit-content;
+            .img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            grid-template-columns: unset;
+            padding: 1em;
+            width: 100%;
+        }
+
+        @media (max-width: 400px) {
+            .img {
+                height: 150px;
+            }
+            .content {
+                padding: 1em;
+                h3 {
+                    font-size: 1.3em;
+                }
+                form {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

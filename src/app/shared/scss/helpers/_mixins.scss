@@ -1,4 +1,7 @@
+@use '../base/flex' as flex;
+
 @mixin button($border-radius: 0px) {
+    @include flex.row($justify-content: center, $gap: 1em);
     border: none;
     outline: none;
     padding: .5em .75em;
