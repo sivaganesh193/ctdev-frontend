@@ -4,14 +4,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
+    private readonly token: string;
 
-    constructor() { }
+    constructor() {
+        if(localStorage.getItem('user_role') === 'student') {
+            this.token = localStorage.getItem('ctdevStudentToken') as string;
+        }
+        else {
+            this.token = localStorage.getItem('ctdevAdminToken') as string;
+        }
+     }
     
     isAuthenticated(): boolean {
-        return !!localStorage.getItem('ctdevToken');
+        return !!this.token;
     }
   
     getToken(): string {
-        return localStorage.getItem('ctdevToken') as string;
+        return this.token;
     }
 }

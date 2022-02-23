@@ -15,8 +15,12 @@ export class StudentService {
         this.url = API;
     }
 
-    fetchComplaint(_data: { cid: number, password: string }): Observable<{ complaint: Complaint, token: string }> {
-        return this._http.post<{ complaint: Complaint, token: string }>(`${this.url}/fetchComplaint`, _data);
+    authComplaint(data: { cid: number, password: string }): Observable<{ token: string }> {
+        return this._http.post<{ token: string }>(`${this.url}/authComplaint`, data);
+    }
+
+    fetchComplaint(): Observable<Complaint> {
+        return this._http.get<Complaint>(`${this.url}/fetchComplaint`);
     }
 
     sendMessage(_data: { cid: number, message: string }): Observable<Chat> {

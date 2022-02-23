@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ScrollComponent } from './components/scroll/scroll.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 @NgModule({
     declarations: [
         PageNotFoundComponent,
-        ScrollComponent
+        ScrollComponent,
+        ConfirmationComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        MaterialModule,
     ],
     exports: [
         MaterialModule,

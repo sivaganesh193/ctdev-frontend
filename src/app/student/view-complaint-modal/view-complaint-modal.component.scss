@@ -36,12 +36,19 @@
                     border-radius: .2em;
                     background: global.$primary_chat_color;
                     font-size: 1.1em;
+                    &:focus {
+                        outline: 2px solid global.$primary_btn_color;
+                    }
                 }
                 button {
                     font-size: 1.1em;
                     &:disabled {
                         background: lighten(global.$primary_btn_color, 20%);
                         cursor: not-allowed;
+                    }
+                    &:hover {
+                        transform: scale(1.02);
+                        transition: .2s transform ease-in-out;
                     }
                 }
             }

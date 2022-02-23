@@ -1,8 +1,8 @@
 <div class="container">
     <div class="complaint-container">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex ab quisquam commodi soluta fugit. Dolorum minima quasi assumenda unde veritatis quaerat, vero perferendis cumque voluptate rem, aspernatur recusandae porro obcaecati!
+        {{ this.complaint.complaint }}
     </div>
-    <div class="chat-wrap" *ngFor="let chat of this.chats; trackBy: this.trackByIdFn">
+    <div class="chat-wrap" *ngFor="let chat of this.complaint.chatHistory; trackBy: this.trackByIdFn">
         <div class="chat" 
             [ngClass]="chat.user === 'admin' ? 'primary':'secondary'"
         >

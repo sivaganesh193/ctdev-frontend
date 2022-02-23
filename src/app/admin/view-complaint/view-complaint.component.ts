@@ -11,27 +11,28 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
   styleUrls: ['./view-complaint.component.scss']
 })
 export class ViewComplaintComponent implements OnInit {
-  chats: any[]
-  readonly showScroll$: Observable<boolean>;
+    chats: any[]
+    readonly showScroll$: Observable<boolean>;
 
-  constructor(@Inject(DOCUMENT) private readonly document: Document, private readonly viewport: ViewportScroller) { 
-      this.chats = [];
-      this.showScroll$ = fromEvent(this.document,'scroll')
-      .pipe(
-          untilDestroyed(this),
-          map(() => this.viewport.getScrollPosition()?.[1] > 0)
-      );
-  }
+    constructor(
+        @Inject(DOCUMENT) private readonly document: Document, 
+        private readonly viewport: ViewportScroller) { 
+        this.chats = [];
+        this.showScroll$ = fromEvent(this.document,'scroll')
+        .pipe(
+            untilDestroyed(this),
+            map(() => this.viewport.getScrollPosition()?.[1] > 0)
+        );
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  trackByIdFn(_:number, data: any) {
-    return data.cid;
-  }
+    trackByIdFn(_:number, data: any) {
+        return data.cid;
+    }
 
-  onScrollToTop(): void {
-    this.viewport.scrollToPosition([0,0]);
-  }
-
+    onScrollToTop(): void {
+        this.viewport.scrollToPosition([0,0]);
+    }
 }
