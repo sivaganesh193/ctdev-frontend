@@ -14,6 +14,7 @@ import { StudentService } from '../student.service';
 })
 export class ViewComplaintModalComponent {
     complaintForm: FormGroup;
+    visible: boolean;
 
     constructor(
         private readonly _studentService: StudentService,
@@ -24,6 +25,7 @@ export class ViewComplaintModalComponent {
             cid: new FormControl(null, Validators.required),
             password: new FormControl('', Validators.required)
         });
+        this.visible = false;
     }
 
     onSubmit(): void {

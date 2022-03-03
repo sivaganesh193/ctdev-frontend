@@ -5,6 +5,7 @@
     <div class="chat-wrap" *ngFor="let chat of this.complaint.chatHistory; trackBy: this.trackByIdFn">
         <div class="chat" 
             [ngClass]="chat.user === 'admin' ? 'primary':'secondary'"
+            [@slide]="chat.user !== 'admin' ? 'right' : 'left'"
         >
             {{ chat.message }}
             <div class="time" 

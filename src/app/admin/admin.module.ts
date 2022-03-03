@@ -10,7 +10,6 @@ import { AddFaqComponent } from './add-faq/add-faq.component';
 import { ViewComplaintComponent } from './view-complaint/view-complaint.component';
 import { SharedModule } from '../shared/shared.module';
 
-
 @NgModule({
   declarations: [
     AdminComponent,

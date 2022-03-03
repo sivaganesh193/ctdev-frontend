@@ -1,0 +1,51 @@
+@use '/src/app/shared/scss/main.scss' as global;
+
+.modal-box {
+    width: 300px;
+    padding: 1em;
+    border-radius: 20px;
+    font-family: global.$primary_font;
+    text-align: center;
+    h4 {
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+    .btn-grp {
+        @include global.row($gap: 2em);
+        button {
+            @include global.button;
+            width: 100%;
+            font-size: 1em;
+            border-radius: .2em;
+            &.cancel {
+                background: global.$primary_chat_color;
+                &:hover {
+                    animation: wobble 1s ease-in-out;
+                }
+            }
+            &.proceed {
+                background: global.$primary_btn_color;
+                color: white;
+                &:hover {
+                    animation: zoom .5s ease-out forwards;
+                }
+                @keyframes zoom {
+                    from {
+                        transform: scale(1);
+                    }
+                    to {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+    & > * {
+        margin-bottom: 1em;
+    }
+
+    @media (max-width: 400px) {
+        width: fit-content;
+        padding: 0;
+    }
+}

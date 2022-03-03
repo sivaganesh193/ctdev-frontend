@@ -36,8 +36,19 @@
                     border-radius: .2em;
                     background: global.$primary_chat_color;
                     font-size: 1.1em;
+                    width: 100%;
                     &:focus {
                         outline: 2px solid global.$primary_btn_color;
+                    }
+                }
+                .password-wrap {
+                    position: relative;
+                    span {
+                        position: absolute;
+                        top: 9px;
+                        right: 10px;
+                        color: grey;
+                        cursor: pointer;
                     }
                 }
                 button {
@@ -47,14 +58,13 @@
                         cursor: not-allowed;
                     }
                     &:hover {
-                        transform: scale(1.02);
-                        transition: .2s transform ease-in-out;
+                        animation: rubberBand 1s ease-in-out;
                     }
                 }
             }
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 995px) {
             padding: 1em;
             height: fit-content;
             .img {

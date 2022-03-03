@@ -4,12 +4,25 @@ import { DOCUMENT, ViewportScroller } from '@angular/common';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { StudentService } from '../student.service';
 import { Complaint } from 'src/app/shared/types/complaint';
+import { trigger, transition, style, animate } from '@angular/animations';
 @UntilDestroy()
 
 @Component({
-  selector: 'app-view-complaint',
-  templateUrl: './view-complaint.component.html',
-  styleUrls: ['./view-complaint.component.scss']
+    selector: 'app-view-complaint',
+    templateUrl: './view-complaint.component.html',
+    styleUrls: ['./view-complaint.component.scss'],
+    animations: [
+        trigger('slide',[
+            transition('void => left', [
+                style({ opacity: 0, transform: 'translateX(-30px)' }), 
+                animate('.5s', style({ opacity: 1, transform: 'translateX(0)' }))
+            ]),
+            transition('void => right', [
+                style({ opacity: 0, transform: 'translateX(30px)' }), 
+                animate('.5s', style({ opacity: 1, transform: 'translateX(0)' }))
+            ])
+        ]),
+    ]
 })
 export class ViewComplaintComponent implements OnInit {
     complaint!: Complaint;
