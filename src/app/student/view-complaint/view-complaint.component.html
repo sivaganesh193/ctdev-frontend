@@ -1,1 +1,27 @@
-<p>view-complaint works!</p>
+<div class="container">
+    <div class="complaint-container">
+        {{ this.complaint.complaint }}
+    </div>
+    <div class="chat-wrap" *ngFor="let chat of this.complaint.chatHistory; trackBy: this.trackByIdFn">
+        <div class="chat" 
+            [ngClass]="chat.user === 'admin' ? 'primary':'secondary'"
+            [@slide]="chat.user !== 'admin' ? 'right' : 'left'"
+        >
+            {{ chat.message }}
+            <div class="time" 
+                [ngClass]="chat.user === 'admin' ? 'primary':'secondary'"
+            >
+                {{ chat.timestamp }}
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="this.showScroll$ | async">
+        <app-scroll (scrollToTop)="this.onScrollToTop()"></app-scroll>
+    </ng-container>
+    <div class="chat-type-wrap">
+        <input type="text" placeholder="type something ...">
+        <button>
+            <img src="../../../assets/img/send.png" alt="send-icon">
+        </button>
+    </div>
+</div>

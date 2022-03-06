@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="model-box">
+        <div class="img"></div>
+        <div class="content">
+            <h3>Complaint</h3>
+            <form [formGroup]="this.complaintForm">
+                <input type="number" formControlName="cid" placeholder="complaint ID">
+                <div class="password-wrap">
+                    <input [type]="this.visible ? 'text' : 'password'" formControlName="password" placeholder="password">
+                    <span class="material-icons" (click)="this.visible = !this.visible">
+                        {{ this.visible ? 'visibility' : 'visibility_off' }}
+                    </span>
+                </div>
+                <button (click)="this.onSubmit()" [disabled]="this.complaintForm.invalid">
+                    Submit 
+                    <span class="material-icons">keyboard_tab</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

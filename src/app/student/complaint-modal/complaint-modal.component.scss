@@ -1,0 +1,103 @@
+@use '/src/app/shared/scss/main.scss' as global;
+
+.title {
+    margin-bottom: 20px;
+    text-align: center;
+    span {
+        border-bottom: 3px solid global.$dark_violet;
+    }
+}
+
+.modal-container {
+    @include global.row($justify-content: space-evenly);
+
+    .image {
+        width: 30%;
+
+        img {
+            width: 100%;
+        }
+    }
+    
+    .complaint-form { 
+        width: 45%;
+        .form-field {
+            width: 100%;
+
+            .complaint-input {
+                padding: .5em .75em;
+                border-radius: 7px;
+                background: global.$primary_chat_color;
+                font-size: 1em;
+                resize: none;
+            }
+
+            ::ng-deep .mat-form-field-underline {
+                display: none;
+            }
+
+            .valid-input {
+                &:focus {
+                    outline: 2px solid blue;
+                }
+            }
+
+            .invalid-input {
+                &:focus {
+                    outline: 2px solid red;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    .close-btn {
+        margin-left: auto;
+    }
+
+    .submit-btn {
+        color: white;
+        background: global.$primary_btn_color;
+    
+        &:disabled {
+            background: lighten(global.$primary_btn_color, 20%);
+            cursor: not-allowed;
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .modal-container {
+        .image {
+            width: 35%;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .modal-container {
+        .image {
+            width: 45%;
+        }
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .modal-container {
+        @include global.column;
+
+        .image {
+            width: 90%;
+        }
+
+        .complaint-form {
+            width: 90%;
+            .form-field {
+                .complaint-input {
+                    padding: 0.2em;
+                }
+            }
+        }
+    }
+}
