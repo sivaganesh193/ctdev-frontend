@@ -1,0 +1,9 @@
+@use '/src/app/shared/scss/components/modal';
+
+.btn-grp {
+    justify-content: center;
+    .proceed {
+        width: fit-content !important;
+        padding: .5em 2em !important;
+    }
+}
